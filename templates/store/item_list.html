@@ -1,0 +1,14 @@
+<table>
+  <tr>
+    <th>name</th>
+    <th>price</th>
+  </tr>
+  {% for item in items %}
+  <tr>
+    <td>
+      <a href="{% url 'store:item_detail' id=item.id %}">{{ item.name }}</a>
+    </td>
+    <td>{{ item.price }}</td>
+  </tr>
+  {% endfor %}
+</table>
