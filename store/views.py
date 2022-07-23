@@ -23,3 +23,9 @@ def to_google(request):
 
 def one_item(request):
     return redirect('store:item_detail', id=1)
+
+def page_not_found(request, exception):
+    return render(request, 'store/404.html', status=404)
+
+def server_error(request):
+    return render(request, 'store/500.html', status=500)
