@@ -1,7 +1,9 @@
 from django import forms
 from django.contrib.auth.models import User
 from user.models import Profile
+import logging
 
+application_logger = logging.getLogger('application-logger')
 
 class UserForm(forms.ModelForm):
     username = forms.CharField(label='username')
@@ -20,6 +22,7 @@ class ProfileForm(forms.ModelForm):
         fields = ('website',)
 
 class LoginForm(forms.Form):
+    application_logger.debug('login')
     username = forms.CharField(label='username', max_length=150)
     password = forms.CharField(label='password', widget=forms.PasswordInput())
     confirm_password = forms.CharField(label='confirm password', widget=forms.PasswordInput())

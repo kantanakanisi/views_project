@@ -1,8 +1,12 @@
 from django.shortcuts import render, redirect
 from .models import Items
+import logging
+
+application_logger = logging.getLogger('application-logger')
 
 # Create your views here.
 def item_list(request):
+    application_logger.debug('get index page')
     items = Items.objects.all()
     return render(request, 'store/item_list.html', context={
         'items': items
